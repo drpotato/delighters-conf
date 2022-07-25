@@ -15,6 +15,8 @@ const speakers = [
     talk: "Building multiplayer apps with CRDTs; fast",
     role: "Tech Lead @ Dovetail",
     avatarUrl: morgsAvatar.src,
+    description:
+      "Currently slated for the 25th August, the mini-conf will start at 12 pm with first talks kicking off at 1 pm. We’ll then alternate between talks, break times, and a bit of fun - before breaking out for drinks and a discussion at the end of the event",
   },
 ];
 
@@ -38,6 +40,7 @@ const Home: NextPage = () => {
           imageSrc={speaker.avatarUrl}
           talkTitle={speaker.talk}
           speakerTitle={speaker.role}
+          description={speaker.description}
         />
       ))}
     </div>
