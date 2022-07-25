@@ -1,0 +1,47 @@
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 36px 60px 24px;
+    background: white;
+}
+
+.header .branding {
+    display: flex;
+    align-items: center;
+}
+
+.header .branding .logo {
+    font-size: 80px;
+    height: 80px;
+    margin-left: 0;
+    font-family: fit;
+}
+
+.header .branding .title {
+    font-size: 20px;
+    text-align: left;
+}
+
+.header .links {
+    display: flex;
+    gap: 42px;
+    align-items: center;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    border-radius: 20px;
+    background: #000F9F;
+    color: #ffffff;
+}
+
+.button:active {
+    background: #655DC6;
+}

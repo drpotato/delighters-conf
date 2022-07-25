@@ -1,0 +1,30 @@
+@import "../styles/basekick";
+
+.container {
+  display: flex;
+  gap: 8px;
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 3;
+  font-family: "fit-condensed";
+  min-width: 0;
+  min-height: 0;
+  
+  .image {
+    height: 337px;
+    max-width: 337px;
+    flex: 0 1 auto;
+    transition: flex-shrink 200ms ease-in-out;
+  }
+
+  &:hover {
+    .image {
+      flex: 0 0 auto;
+    }
+  }
+
+  .name {
+    pointer-events: none;
+    @include basekick(14, 32, 0.052, 11, 32, 0.8, 2.38)
+  }
+}
+

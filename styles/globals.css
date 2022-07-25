@@ -1,9 +1,14 @@
+@font-face {
+  font-family: 'PPNeueMachina';
+  src: url('/fonts/PPNeueMachina-InktrapRegular.otf');
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: PPNeueMachina;
+  color: #000F9F;
 }
 
 a {
@@ -13,4 +18,8 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+section {
+  padding: 60px 56px;
 }
