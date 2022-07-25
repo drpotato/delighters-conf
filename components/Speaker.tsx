@@ -33,16 +33,26 @@ export const Speaker = ({
         color: "#FFFFFF",
       }}
     >
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "start",
+        }}
+      >
         <span style={{ maxWidth: "25%", fontSize: "32px" }}>{talkTitle}</span>
-        <Plus
+        <div
           onClick={() => setExpanded((expanded) => !expanded)}
-          style={{
-            cursor: "pointer",
-            transform: expanded ? "rotate(-45deg)" : undefined,
-            transition: "transform 500ms ease-in-out",
-          }}
-        />
+          style={{ cursor: "pointer" }}
+        >
+          <Plus
+            style={{
+              transform: expanded ? "rotate(-45deg)" : undefined,
+              transition: "transform 500ms ease-in-out",
+              display: "block",
+            }}
+          />
+        </div>
       </div>
       <div style={{ display: "flex", gap: "18px", maxWidth: "75%" }}>
         <span>
