@@ -31,7 +31,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Header />
-      {/*<Hero />*/}
+      <Hero />
       {speakers.map((speaker) => (
         <Speaker
           key={speaker.talk}
