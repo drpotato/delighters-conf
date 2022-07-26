@@ -2,10 +2,15 @@
     position: sticky;
     top: 0;
     width: 100%;
+    padding: 30px 60px 24px;
+    background: white;
+}
+
+.header .inner {
     display: flex;
     justify-content: space-between;
-    padding: 36px 60px 24px;
-    background: white;
+    align-items: start;
+    border-top: #000F9F 1px solid;
 }
 
 .header .branding {
@@ -26,9 +31,10 @@
 }
 
 .header .links {
-    display: flex;
-    gap: 42px;
-    align-items: center;
+}
+
+.header .links a {
+    border: #000F9F 1px solid;
 }
 
 .button {
