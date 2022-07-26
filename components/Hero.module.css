@@ -2,9 +2,11 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(7, 96px);
+
+  padding: 60px 56px;
 }
 
-.hero span {
+.hero p {
   display: block;
   color: #EFF0F4;
   max-width: 630px;
