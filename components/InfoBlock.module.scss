@@ -1,0 +1,58 @@
+.section {
+
+  .image {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    padding: 60px 0 0 60px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      overflow: hidden;
+      object-fit: contain;
+    }
+  }
+
+  .content {
+    position: relative;
+    overflow: hidden;
+    padding: 44px 60px 60px 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    .text {
+      padding-top: 28px;
+      position: relative;
+      overflow: visible;
+
+      &:before {
+        content: "";
+        position: absolute;
+        height: 1px;
+        background: #000F9F;
+        left: 0;
+        top: 0;
+        right: -60px
+      }
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      max-width: 75%;
+
+      .heading {
+        font-size: 48px;
+        line-height: 120%;
+        max-width: 33%;
+      }
+
+      .paragraph {
+        max-width: 33%;
+        line-height: 150%;
+      }
+    }
+  }
+}

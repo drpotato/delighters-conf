@@ -1,0 +1,9 @@
+.container {
+  color: var(--foreground-color);
+  background: var(--background-color);
+
+  padding: 48px 60px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

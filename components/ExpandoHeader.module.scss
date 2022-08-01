@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+
+  color: var(--foreground-color);
+  background: var(--background-color);
+
+  .button {
+    cursor: pointer;
+
+    .icon {
+      transition: transform 500ms ease-in-out;
+      display: block;
+
+      path {
+        fill: var(--foreground-color);
+      }
+
+      &.rotated {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

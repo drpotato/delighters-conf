@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import Plus from "../public/plus.svg";
 import styles from "./Speaker.module.scss";
+import { ExpandoHeader } from "./ExpandoHeader";
+import { className } from "./className";
+import { Theme, themeStyle } from "./Theme";
 
 interface Props {
   firstName: string;
@@ -10,6 +12,9 @@ interface Props {
   talkTitle: string;
   speakerTitle: string;
   description: string;
+  theme: Theme;
+  expanded: boolean;
+  onExpanded: () => void;
 }
 
 export const Speaker = ({
@@ -19,83 +24,61 @@ export const Speaker = ({
   speakerTitle,
   imageSrc,
   description,
-}: Props) => {
-  const [expanded, setExpanded] = useState(false);
-  useEffect(() => console.log({ expanded }), [expanded]);
-  return (
+  theme,
+  expanded,
+  onExpanded,
+}: Props) => (
+  <div
+    className={className(
+      themeStyle[theme],
+      styles.section,
+      expanded && styles.expanded
+    )}
+  >
+    <ExpandoHeader expanded={expanded} onExpand={onExpanded}>
+      <h2 style={{ width: "25%" }}>{talkTitle}</h2>
+    </ExpandoHeader>
+    <div style={{ display: "flex", gap: "18px", maxWidth: "75%" }}>
+      <span>
+        {firstName} {lastName}
+      </span>
+      <hr
+        style={{
+          flexGrow: 1,
+          height: "1px",
+          color: "var(--foreground-color)",
+        }}
+      />
+      <span>{speakerTitle}</span>
+    </div>
     <div
       style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "18px",
-        padding: "60px",
-        background: "#000F9F",
-        color: "#FFFFFF",
+        maxWidth: "480px",
+        overflow: "hidden",
+        lineHeight: expanded ? "150%" : "0px",
+        transition: expanded
+          ? "line-height 500ms ease-in-out, clip-path 500ms ease-in-out 500ms"
+          : "line-height 500ms ease-in-out 500ms, clip-path 500ms ease-in-out",
+        clipPath: `inset(0px ${expanded ? "0px" : "100%"} 0px 0px)`,
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "start",
-        }}
-      >
-        <span style={{ maxWidth: "25%", fontSize: "32px" }}>{talkTitle}</span>
-        <div
-          onClick={() => setExpanded((expanded) => !expanded)}
-          style={{ cursor: "pointer" }}
-        >
-          <Plus
-            style={{
-              transform: expanded ? "rotate(-45deg)" : undefined,
-              transition: "transform 500ms ease-in-out",
-              display: "block",
-            }}
-          />
-        </div>
-      </div>
-      <div style={{ display: "flex", gap: "18px", maxWidth: "75%" }}>
-        <span>
-          {firstName} {lastName}
-        </span>
-        <hr
-          style={{
-            flexGrow: 1,
-            height: "1px",
-            color: "#ffffff",
-          }}
-        />
-        <span>{speakerTitle}</span>
-      </div>
-      <div
-        style={{
-          maxWidth: "480px",
-          overflow: "hidden",
-          lineHeight: expanded ? "18px" : "0px",
-          transition: expanded
-            ? "line-height 500ms ease-in-out, clip-path 500ms ease-in-out 500ms"
-            : "line-height 500ms ease-in-out 500ms, clip-path 500ms ease-in-out",
-          clipPath: `inset(0px ${expanded ? "0px" : "100%"} 0px 0px)`,
-        }}
-      >
-        {description}
-      </div>
-      <div style={{ height: "84px" }} />
-      <div className={styles.container}>
-        <span className={styles.name}>{firstName}</span>
-        <div className={styles.image} style={{}}>
-          <img
-            style={{
-              height: "100%",
-              maxWidth: "100%",
-              overflow: "hidden",
-              objectFit: "cover",
-            }}
-            src={imageSrc}
-          />
-        </div>
-        <span className={styles.name}>{lastName}</span>
-      </div>
+      {description}
     </div>
-  );
-};
+    <div style={{ height: "84px" }} />
+    <div className={styles.container}>
+      <span className={styles.name}>{firstName}</span>
+      <div className={styles.image} style={{}}>
+        <img
+          style={{
+            height: "100%",
+            maxWidth: "100%",
+            overflow: "hidden",
+            objectFit: "cover",
+          }}
+          src={imageSrc}
+        />
+      </div>
+      <span className={styles.name}>{lastName}</span>
+    </div>
+  </div>
+);

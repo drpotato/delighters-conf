@@ -1,32 +1,72 @@
 @import "../styles/basekick";
 
-.container {
+.section {
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 18px;
+  padding: 60px;
 
-  transition: max-width 500ms ease-in-out;
-  max-width: 75%;
+  background: var(--background-color);
+  color: var(--foreground-color);
 
-  .image {
-    height: 337px;
-    min-width: 38px;
-    max-width: 337px;
-    flex: 0 1 auto;
+  &.expanded {
+    .container {
+      transition: max-width 500ms ease-in-out 500ms;
+      max-width: 100%;
+
+      .image {
+        transition: filter 500ms ease-in-out 500ms;
+        filter: saturate(1);
+      }
+
+      .name {
+        transition: opacity 500ms ease-in-out 500ms;
+        opacity: 1;
+      }
+    }
   }
 
-  &:hover {
-    max-width: 100%;
-  }
+  .container {
+    display: flex;
+    gap: 8px;
 
-  .name {
-    font-family: "fit-condensed";
-    pointer-events: none;
-    @include basekick(14, 32, 0.052, 11, 32, 0.8, 2.38)
-  }
+    transition: max-width 500ms ease-in-out;
+    max-width: 75%;
 
-  .condensed {
-    font-family: "fit-extra-contensed";
-    @include basekick(14, 32, 0.052, 11, 32, 0.8, 2.38)
+    .image {
+      height: 337px;
+      min-width: 38px;
+      flex: 0 1 auto;
+      filter: saturate(0);
+      transition: filter 500ms ease-in-out;
+    }
+
+    &:hover {
+      max-width: 100%;
+
+      .image {
+        filter: saturate(1);
+      }
+
+      .name {
+        opacity: 1;
+      }
+    }
+
+    .name {
+      transition: opacity 500ms ease-in-out;
+      opacity: 20%;
+      font-family: "fit-condensed";
+      pointer-events: none;
+      @include basekick(14, 32, 0.052, 11, 32, 0.8, 2.38);
+
+    }
+
+    .condensed {
+      font-family: "fit-extra-contensed";
+      @include basekick(14, 32, 0.052, 11, 32, 0.8, 2.38)
+    }
   }
 }
+
 

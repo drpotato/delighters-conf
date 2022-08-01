@@ -1,0 +1,16 @@
+.container {
+  padding: 64px 60px 24px;
+
+  color: var(--foreground-color);
+  background: var(--background-color);
+
+  h1 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 120%;
+    padding-bottom: 12px;
+
+    box-shadow: var(--foreground-color) 0 2px;
+  }
+}
