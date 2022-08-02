@@ -1,18 +1,19 @@
 import { NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
 
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import styles from "../styles/Home.module.css";
 import { Speaker } from "../components/Speaker";
-
-import morgsAvatar from "../public/morgs.png";
-import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/router";
 import { InfoBlock } from "../components/InfoBlock";
 import { Heading } from "../components/Heading";
 import { FAQ } from "../components/FAQ";
 import { CTA } from "../components/CTA";
+import morgsAvatar from "../public/morgs.png";
+import officeImage from "../public/dovetail-office.png";
+import peopleImage from "../public/dovetail-people.png";
+import styles from "../styles/Home.module.css";
 
 const speakers = [
   {
@@ -132,7 +133,7 @@ const Home: NextPage = () => {
         ref={aboutSentinelRef}
       />
       <InfoBlock
-        image="/dovetail-office.png"
+        image={officeImage.src}
         heading="Let’s talk about delighters!"
         paragraphs={[
           "Delighters Conference is gathering the best product-engineering minds across Sydney for one afternoon to share thoughts on a range of technology and craft-based topics. If you’re interested in learning how different teams are leveraging the latest technologies to build products their customers love - this conference is for you.",
@@ -166,7 +167,7 @@ const Home: NextPage = () => {
         />
       ))}
       <InfoBlock
-        image="/dovetail-people.png"
+        image={peopleImage.src}
         heading="Who’s Dovetail?"
         paragraphs={[
           "G’day 👋 We’re a rapidly growing product-led Australian company. We help teams worldwide understand their customers, make better decisions, and do great work.",
@@ -205,7 +206,13 @@ const Home: NextPage = () => {
 export default Home;
 
 export async function getStaticPaths() {
-  return { paths: [{ params: { slug: null } }], fallback: true };
+  return {
+    paths: [
+      { params: { slug: null } },
+      { params: { slug: ["about", "speakers", "sign-up"] } },
+    ],
+    fallback: true,
+  };
 }
 
 export async function getStaticProps() {
