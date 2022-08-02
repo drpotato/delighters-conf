@@ -1,5 +1,5 @@
 .container {
-  padding: 60px;
+  padding: var(--section-padding);
   height: var(--section-height);
 
   background: #000F9F;

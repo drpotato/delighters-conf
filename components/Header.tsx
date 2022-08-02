@@ -1,47 +1,32 @@
 import React from "react";
 import Link from "next/link";
 
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 import Logo from "../public/logo.svg";
+import { className } from "./className";
 
 const Header = React.forwardRef<HTMLElement>((_, ref) => (
   <header ref={ref} className={styles.header}>
     <div className={styles.inner}>
-      <div
-        style={{
-          paddingTop: "8px",
-          flexGrow: 1,
-          borderTop: "#000F9F 1px solid",
-        }}
-      >
+      <div className={styles.left}>
         <Logo />
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "15px",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-          }}
-        >
+      <div className={styles.right}>
+        <div className={styles.links}>
           <Link href="/about" scroll={false}>
-            <a className={styles.linkLight}>
+            <a className={className(styles.link, styles.light)}>
               <span>What is Delighters?</span>
               <span style={{ width: "16px", textAlign: "center" }}>↓</span>
             </a>
           </Link>
           <Link href="/speakers" scroll={false}>
-            <a className={styles.linkLight}>
+            <a className={className(styles.link, styles.light)}>
               <span>Speakers</span>
               <span style={{ width: "16px", textAlign: "center" }}>↓</span>
             </a>
           </Link>
           <Link href="/sign-up" scroll={false}>
-            <a className={styles.linkDark}>
+            <a className={className(styles.link, styles.dark)}>
               <span>Sign Up</span>
               <span style={{ width: "16px", textAlign: "center" }}>↗</span>
             </a>
