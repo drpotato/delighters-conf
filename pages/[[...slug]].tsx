@@ -86,7 +86,7 @@ const Home: NextPage = () => {
   const [expandedFaqIndex, setExpandedFaqIndex] = useState<number>();
 
   const { asPath: slug } = useRouter();
-  const headerRef = useRef<HTMLElement | null>(null);
+  const [headerElement, setHeaderElement] = useState<HTMLElement | null>(null);
   const aboutSentinelRef = useRef<HTMLDivElement | null>(null);
   const speakersSentinelRef = useRef<HTMLDivElement | null>(null);
   const ctaSentinelRef = useRef<HTMLDivElement | null>(null);
@@ -110,7 +110,7 @@ const Home: NextPage = () => {
       style={{
         // @ts-ignore
         "--section-height": `calc(100vh - ${
-          headerRef.current?.clientHeight ?? 0
+          headerElement?.clientHeight ?? 0
         }px)`,
       }}
       className={styles.container}
@@ -122,13 +122,13 @@ const Home: NextPage = () => {
         <link rel="stylesheet" href="https://use.typekit.net/ano2bsu.css" />
       </Head>
 
-      <Header ref={headerRef} />
+      <Header ref={setHeaderElement} />
       <Hero />
       <div style={{ height: "64px" }} />
       <div
         style={{
           position: "relative",
-          bottom: headerRef.current?.clientHeight,
+          bottom: headerElement?.clientHeight,
         }}
         ref={aboutSentinelRef}
       />
@@ -143,7 +143,7 @@ const Home: NextPage = () => {
       <div
         style={{
           position: "relative",
-          bottom: headerRef.current?.clientHeight,
+          bottom: headerElement?.clientHeight,
         }}
         ref={speakersSentinelRef}
       />
@@ -194,7 +194,7 @@ const Home: NextPage = () => {
       <div
         style={{
           position: "relative",
-          bottom: headerRef.current?.clientHeight,
+          bottom: headerElement?.clientHeight,
         }}
         ref={ctaSentinelRef}
       />
