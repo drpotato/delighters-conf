@@ -209,7 +209,9 @@ export async function getStaticPaths() {
   return {
     paths: [
       { params: { slug: null } },
-      { params: { slug: ["about", "speakers", "sign-up"] } },
+      { params: { slug: ["about"] } },
+      { params: { slug: ["speakers"] } },
+      { params: { slug: ["sign-up"] } },
     ],
     fallback: true,
   };
