@@ -175,7 +175,7 @@ const Home: NextPage = () => {
         ]}
       />
       <div style={{ height: "64px" }} />
-      <Heading text="FAQ" theme="dark" />
+      <Heading text="FAQs" theme="light" />
       {faqs.map(({ title, description }, index) => (
         <FAQ
           key={index}
@@ -187,7 +187,7 @@ const Home: NextPage = () => {
               index === current ? undefined : index
             )
           }
-          theme={index % 2 === 0 ? "dark" : "light"}
+          theme={"light"}
         />
       ))}
       <div style={{ height: "64px" }} />
