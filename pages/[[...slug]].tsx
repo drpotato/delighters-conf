@@ -203,3 +203,13 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getStaticPaths() {
+  return { paths: [{ params: { slug: null } }], fallback: true };
+}
+
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
