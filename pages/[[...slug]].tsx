@@ -14,6 +14,9 @@ import morgsAvatar from "../public/morgs.png";
 import officeImage from "../public/dovetail-office.png";
 import peopleImage from "../public/dovetail-people.png";
 import styles from "../styles/Home.module.css";
+import { useRsvp } from "../hooks/useRsvp";
+import { useConsumeUrlParam } from "../hooks/useConsumeUrlParam";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const speakers = [
   {
@@ -104,6 +107,18 @@ const Home: NextPage = () => {
         break;
     }
   }, [slug]);
+
+  const [rsvpId, setRsvpId] = useLocalStorage("rsvp_id");
+  const [projectId, setProjectId] = useLocalStorage("project_id");
+  const [accessToken, setAccessToken] = useLocalStorage("access_token");
+  useConsumeUrlParam("rsvp_id", setRsvpId);
+  useConsumeUrlParam("project_id", setProjectId);
+  useConsumeUrlParam("access_token", setAccessToken);
+
+  const { loading, rsvp } = useRsvp(projectId, accessToken, rsvpId);
+  useEffect(() => {
+    console.log({ loading, rsvp });
+  }, [loading, rsvp]);
 
   return (
     <div
@@ -214,7 +229,7 @@ export async function getStaticPaths() {
       { params: { slug: ["speakers"] } },
       { params: { slug: ["sign-up"] } },
     ],
-    fallback: true,
+    fallback: false,
   };
 }
 
