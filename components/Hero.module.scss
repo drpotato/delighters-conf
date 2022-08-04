@@ -31,6 +31,10 @@
   .paragraph {
     grid-column: 1 / span 2;
     grid-row: 5 / span 1;
+
+    .cta {
+      display: none;
+    }
   }
 }
 
@@ -50,7 +54,20 @@
     }
 
     .paragraph {
+      grid-row: 5 / span 2;
       font-size: 12px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .cta {
+        line-height: 100%;
+        border-radius: 21px;
+        padding: 6px 16px 5px;
+        background: #000F9F;
+        color: #FFFFFF;
+      }
     }
   }
 }

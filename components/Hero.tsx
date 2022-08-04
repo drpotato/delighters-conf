@@ -1,9 +1,9 @@
 import React from "react";
-
-import Illo from "../public/hero.svg";
+import Link from "next/link";
 
 import styles from "./Hero.module.scss";
 import { useTypeWriter } from "../hooks/useTypeWriter";
+import Illo from "../public/hero.svg";
 
 const Hero = ({}) => {
   const [titleTyped, titleUntyped] = useTypeWriter(
@@ -27,10 +27,15 @@ const Hero = ({}) => {
           </span>
           <span style={{ textOverflow: "wrap" }}>{subtitleUntyped}</span>
         </p>
-        <p className={styles.paragraph}>
-          Secure your spot and connect with some of Sydney’s best product
-          engineers
-        </p>
+        <div className={styles.paragraph}>
+          <p>
+            Secure your spot and connect with some of Sydney’s best product
+            engineers
+          </p>
+          <Link href="/sign-up" scroll={false}>
+            <a className={styles.cta}>Sign Up</a>
+          </Link>
+        </div>
       </section>
       <div style={{ width: "100%" }}>
         <Illo />
