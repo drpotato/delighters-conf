@@ -38,14 +38,24 @@ h2 {
   line-height: 120%;
 }
 
-@media screen and (max-width: 480px) {
+// Mobile
+@media screen and (max-width: 480px),
+only screen and (max-width: 760px) and (-webkit-device-pixel-ratio: 2) {
   html {
     --section-padding: 20px;
   }
 }
 
+// Tablet
 @media screen and (min-width: 768px) {
   html {
     --section-padding: 60px;
   }
+}
+
+// Narrow
+@media screen
+and (min-device-width: 768px)
+and (max-device-width: 1200px)
+and (-webkit-min-device-pixel-ratio: 1) {
 }
