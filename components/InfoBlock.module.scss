@@ -4,13 +4,13 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    padding: 60px 0 0 60px;
+    padding: var(--section-padding) 0 0 var(--section-padding);
     overflow: hidden;
 
     img {
       display: block;
       overflow: hidden;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
 
@@ -52,6 +52,34 @@
       .paragraph {
         max-width: 33%;
         line-height: 150%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 480px),
+only screen and (max-width: 760px) and (-webkit-device-pixel-ratio: 2) {
+  .section {
+
+    .image {
+      min-height: 210px;
+    }
+
+    .content {
+      padding: 24px 20px 20px 20px;
+
+      .text {
+        flex-direction: column;
+        padding-right: 20px;
+
+        .heading {
+          font-size: 24px;
+          max-width: unset;
+        }
+
+        .paragraph {
+          font-size: 12px;
+          max-width: unset;
+        }
       }
     }
   }
